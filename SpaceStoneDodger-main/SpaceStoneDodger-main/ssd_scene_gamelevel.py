@@ -114,6 +114,7 @@ class GameLevel(Scn.Scene):
         self.asteroid_field.handle_movement(key_list)
         self.powerup_field.handle_movement(key_list)
         self.starfield.handle_movement(key_list)
+        
         if CST.pressed("Z", key_list):
             self.skip()
 
