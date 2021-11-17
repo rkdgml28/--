@@ -1,6 +1,3 @@
-# pylint: disable=no-member
-
-# SpaceStoneDodger: Movie Effect utility for cinematics
 
 import pygame
 import ssd_constants as CST

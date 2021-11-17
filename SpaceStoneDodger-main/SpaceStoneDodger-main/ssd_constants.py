@@ -109,6 +109,9 @@ KEYBINDINGS = {
     ),
     "Z": (
         pygame.K_z,
+    ),
+    "I": (
+        pygame.K_i,
     )
 }
 
@@ -143,7 +146,7 @@ class SCENES:
     GAME_TUTORIAL = 1
     GAME_LEVEL = 2
     GAME_LOSING_SCREEN = 3
-
+    GAME_Infinity = 4
 
 # Text alignment
 class TXT:

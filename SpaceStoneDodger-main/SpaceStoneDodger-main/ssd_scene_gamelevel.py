@@ -2,7 +2,6 @@
 
 # SpaceStonerDodger: Game Level Scene
 
-
 import pygame
 import ssd_constants as CST
 import ssd_player as plr
@@ -82,13 +81,11 @@ class GameLevel(Scn.Scene):
         self.set_timer_step(1) # Setting the internal timer
         self.timer_seconds_passed = 0
 
+        #스킵 기능
     def skip(self):
-        if self.timer_seconds_passed < 54 :
-            print("Skip")
-            self.timer_seconds_passed = 54
-            self.movie_effect.start_animation()
+        if self.timer_seconds_passed < 53 :
+            self.timer_seconds_passed = 53
             self.navigator_text.hide()
-            self.movie_effect.hide()
 
     def timer_duty(self) -> None:
         # What happens when the timer goes off
@@ -114,8 +111,7 @@ class GameLevel(Scn.Scene):
         self.asteroid_field.handle_movement(key_list)
         self.powerup_field.handle_movement(key_list)
         self.starfield.handle_movement(key_list)
-        
-        if CST.pressed("Z", key_list):
+        if CST.pressed("Z", key_list):  #Z누르면 스킵
             self.skip()
 
     def reset_state(self):
@@ -146,7 +142,6 @@ class GameLevel(Scn.Scene):
         self.navigator_text.set_text(this_event_text)
         self.navigator_text.start()
         self.keypress_allowed = True
-        self.player.user_controlled()
 
     def tml_starting_speech_2(self) -> None:
         this_event_text = CST.get_text("LEVEL002")
@@ -166,6 +161,7 @@ class GameLevel(Scn.Scene):
     def tml_playing_phase_start(self) -> None:
         self.movie_effect.start_animation()
         self.navigator_text.hide()
+        self.player.user_controlled()
 
     def tml_playing_phase_1_1(self) -> None:
         self.num_asteroids = 2

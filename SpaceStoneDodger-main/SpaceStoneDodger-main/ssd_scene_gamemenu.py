@@ -24,6 +24,7 @@ class GameMenu(Scn.Scene):
         SUBTITLE_COORDS = (CST.SCREEN_WIDTH // 2, CST.SCREEN_HEIGHT * 0.2 + 48)
         BOTTOM_TEXT_COORDS_LEFT = (0, CST.SCREEN_HEIGHT - SIZE_TEXT_MEDIUM)
         BOTTOM_TEXT_COORDS_RIGHT = (CST.SCREEN_WIDTH, CST.SCREEN_HEIGHT - SIZE_TEXT_MEDIUM)
+        BOTTOM_TEXT_COORDS_LEFT_UP = (0,CST.SCREEN_HEIGHT - 60)
 
         self.level_background = bg.Background()
         self.starfield = stf.Starfield(15)
@@ -32,6 +33,7 @@ class GameMenu(Scn.Scene):
         self.text_subtitle = txt.StaticText(CST.get_text("MENU001"), SIZE_TEXT_TINY, SUBTITLE_COORDS, CST.TXT.CENTER)
         self.text_goto_play = txt.StaticText("[P] " + CST.get_text("MENU002"), SIZE_TEXT_MEDIUM, BOTTOM_TEXT_COORDS_LEFT, CST.TXT.LEFT)
         self.text_goto_tutorial = txt.StaticText("[T] " + CST.get_text("MENU003"), SIZE_TEXT_MEDIUM, BOTTOM_TEXT_COORDS_RIGHT, CST.TXT.RIGHT)
+        self.text_goto_Infinite = txt.StaticText("[I] " + CST.get_text("MENU004"), SIZE_TEXT_MEDIUM, BOTTOM_TEXT_COORDS_LEFT_UP, CST.TXT.LEFT)
         
         # Append order is draw order
         self.updatelist.append(self.level_background)
@@ -41,6 +43,7 @@ class GameMenu(Scn.Scene):
         self.updatelist.append(self.text_subtitle)
         self.updatelist.append(self.text_goto_play)
         self.updatelist.append(self.text_goto_tutorial)
+        self.updatelist.append(self.text_goto_Infinite)
 
 
     def keys_to_check(self, key_list: list):
@@ -49,6 +52,8 @@ class GameMenu(Scn.Scene):
             self.quit_loop(CST.SCENES.GAME_LEVEL)
         if CST.pressed("T", key_list):
             self.quit_loop(CST.SCENES.GAME_TUTORIAL)
+        if CST.pressed("I", key_list):
+            self.quit_loop(CST.SCENES.GAME_Infinity)
 
 
 

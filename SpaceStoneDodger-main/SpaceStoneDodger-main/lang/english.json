@@ -3,12 +3,14 @@
 "MENU001": "a simple game where you, well, dodge stones",
 "MENU002": "Play",
 "MENU003": "Tutorial",
+"MENU004": "InFinite Mode",
 "TUTORIAL001": "Move with W,A,S,D (or arrows)\nBoost the ship with SPACE",
 "TUTORIAL002": "Avoid asteroids",
 "TUTORIAL003": "Collect valuable scraps",
 "TUTORIAL004": "Your life",
 "TUTORIAL005": "back to Menu",
 "TUTORIAL006": "Play the game",
+"TUTORIAL007": "Play the Infinite Mode",
 "LEVEL000": "Metals",
 "LEVEL001": "Ok Pilot, I'm Navigator and I'll help you in today's mission. Look how cool it sounds when you call it 'mission'",
 "LEVEL002": "Our job is to collect metal scraps from space and then sell it for money, it ain't much but it's honest work, like my grand-grand-father used to say on earth.",
@@ -25,5 +27,6 @@
 "LEVEL013": "...to be continued",
 "LOSE001": "Sadly, stones Won",
 "LOSE002": "back to Menu",
-"LOSE003": "Play again"
+"LOSE003": "Play again",
+"LOSE004": "Play Infinite Mode again"
 }

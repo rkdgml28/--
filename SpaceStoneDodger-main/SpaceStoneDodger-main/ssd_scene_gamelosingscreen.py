@@ -21,22 +21,27 @@ class GameLosingScreen(Scn.Scene):
         SIZE_TEXT_SMALL = 18
         TITLE_COORDS = (CST.SCREEN_WIDTH // 2, CST.SCREEN_HEIGHT // 2)
         BOTTOM_ROW = CST.SCREEN_HEIGHT - SIZE_TEXT_SMALL
+        BOTTOM_UP_ROW = CST.SCREEN_HEIGHT - SIZE_TEXT_BIG
 
         self.level_background = bg.Background()
         self.text_title = txt.StaticText(CST.get_text("LOSE001"), SIZE_TEXT_BIG, TITLE_COORDS, CST.TXT.CENTER)
         self.goto_menu_label = txt.StaticText("[M] " + CST.get_text("LOSE002"), SIZE_TEXT_SMALL, (0, BOTTOM_ROW), CST.TXT.LEFT)
         self.goto_play_label = txt.StaticText("[P] " + CST.get_text("LOSE003"), SIZE_TEXT_SMALL, (CST.SCREEN_WIDTH, BOTTOM_ROW), CST.TXT.RIGHT)
+        self.goto_Infinity_label = txt.StaticText("[I] " + CST.get_text("LOSE004"), SIZE_TEXT_SMALL, (0, BOTTOM_UP_ROW), CST.TXT.LEFT)
         
         self.updatelist.append(self.level_background)
         self.updatelist.append(self.text_title)
         self.updatelist.append(self.goto_menu_label)
         self.updatelist.append(self.goto_play_label)
+        self.updatelist.append(self.goto_Infinity_label)
 
     def keys_to_check(self, key_list: list):
         if CST.pressed("M", key_list):
             self.quit_loop(CST.SCENES.GAME_MENU)
         if CST.pressed("P", key_list):
             self.quit_loop(CST.SCENES.GAME_LEVEL)
+        if CST.pressed("I", key_list):
+            self.quit_loop(CST.SCENES.GAME_Infinity)
 
 
 
