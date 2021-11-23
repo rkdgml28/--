@@ -25,6 +25,7 @@ class GameMenu(Scn.Scene):
         BOTTOM_TEXT_COORDS_LEFT = (0, CST.SCREEN_HEIGHT - SIZE_TEXT_MEDIUM)
         BOTTOM_TEXT_COORDS_RIGHT = (CST.SCREEN_WIDTH, CST.SCREEN_HEIGHT - SIZE_TEXT_MEDIUM)
         BOTTOM_TEXT_COORDS_LEFT_UP = (0,CST.SCREEN_HEIGHT - 60)
+        BOTTOM_TEXT_COORDS_CENTER = (CST.SCREEN_WIDTH/2, CST.SCREEN_HEIGHT - SIZE_TEXT_BIG * 3)
 
         self.level_background = bg.Background()
         self.starfield = stf.Starfield(15)
@@ -34,7 +35,8 @@ class GameMenu(Scn.Scene):
         self.text_goto_play = txt.StaticText("[P] " + CST.get_text("MENU002"), SIZE_TEXT_MEDIUM, BOTTOM_TEXT_COORDS_LEFT, CST.TXT.LEFT)
         self.text_goto_tutorial = txt.StaticText("[T] " + CST.get_text("MENU003"), SIZE_TEXT_MEDIUM, BOTTOM_TEXT_COORDS_RIGHT, CST.TXT.RIGHT)
         self.text_goto_Infinite = txt.StaticText("[I] " + CST.get_text("MENU004"), SIZE_TEXT_MEDIUM, BOTTOM_TEXT_COORDS_LEFT_UP, CST.TXT.LEFT)
-        
+        self.text_Lang = txt.StaticText("[L] " + CST.get_text("MENU005"), SIZE_TEXT_MEDIUM, BOTTOM_TEXT_COORDS_CENTER,CST.TXT.CENTER )
+
         # Append order is draw order
         self.updatelist.append(self.level_background)
         self.updatelist.append(self.starfield)
@@ -44,9 +46,13 @@ class GameMenu(Scn.Scene):
         self.updatelist.append(self.text_goto_play)
         self.updatelist.append(self.text_goto_tutorial)
         self.updatelist.append(self.text_goto_Infinite)
+        self.updatelist.append(self.text_Lang)
 
 
     def keys_to_check(self, key_list: list):
+        LANG_ENG = 0
+        LANG_KOR = 1
+        
         self.player.handle_movement(key_list)
         if CST.pressed("P", key_list):
             self.quit_loop(CST.SCENES.GAME_LEVEL)
@@ -54,6 +60,18 @@ class GameMenu(Scn.Scene):
             self.quit_loop(CST.SCENES.GAME_TUTORIAL)
         if CST.pressed("I", key_list):
             self.quit_loop(CST.SCENES.GAME_Infinity)
+        if CST.pressed("L", key_list):
+            #현재 언어가 영어라면
+            if(CST.TextDB.current_text_db == CST.get_every_languages()[LANG_ENG]):
+                #영어->한국어
+                CST.set_text_db(CST.get_every_languages()[LANG_KOR])
+            else:
+                #한국어->영어
+                CST.set_text_db(CST.get_every_languages()[LANG_ENG])
+            
+            WIN = pygame.display.set_mode((CST.SCREEN_WIDTH, CST.SCREEN_HEIGHT))
+            pygame.display.set_caption("Space Stone Dodger!")    
+            self.__init__(WIN)         
 
 
 

@@ -112,7 +112,10 @@ KEYBINDINGS = {
     ),
     "I": (
         pygame.K_i,
-    )
+    ),
+    "L": (
+        pygame.K_l,
+    ),
 }
 
 
@@ -123,7 +126,7 @@ SHIP_SPRITE = pygame.image.load("SpaceStoneDodger-main/SpaceStoneDodger-main/ass
 ASTEROID_SPRITE = pygame.image.load("SpaceStoneDodger-main/SpaceStoneDodger-main/assets/asteroid.png")
 SPACE_BG = pygame.image.load("SpaceStoneDodger-main/SpaceStoneDodger-main/assets/purple_space_bg.png") # by Digital Moons (https://digitalmoons.itch.io/)
 METAL_SCRAP_SPRITE = pygame.image.load("SpaceStoneDodger-main/SpaceStoneDodger-main/assets/metal_scrap2.png")
-TITLE_FONT = os.path.join(ASSET_DIR, "kongtext.ttf") # Font by codeman38 | cody@zone38.net | http://www.zone38.net/
+TITLE_FONT = os.path.join(ASSET_DIR, "DungGeunMo.ttf") # Font by codeman38 | cody@zone38.net | http://www.zone38.net/
 
 
 # Custom Pygame Events
