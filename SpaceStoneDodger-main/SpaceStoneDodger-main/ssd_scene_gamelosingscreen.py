@@ -17,8 +17,8 @@ import ssd_scene_master_class as Scn
 
 class GameLosingScreen(Scn.Scene):
     def scene_related_init(self):
-        SIZE_TEXT_BIG = 48
-        SIZE_TEXT_SMALL = 18
+        SIZE_TEXT_BIG = 53
+        SIZE_TEXT_SMALL = 23
         TITLE_COORDS = (CST.SCREEN_WIDTH // 2, CST.SCREEN_HEIGHT // 2)
         BOTTOM_ROW = CST.SCREEN_HEIGHT - SIZE_TEXT_SMALL
         BOTTOM_UP_ROW = CST.SCREEN_HEIGHT - SIZE_TEXT_BIG

@@ -17,9 +17,9 @@ import ssd_scene_master_class as Scn
 
 class GameMenu(Scn.Scene):
     def scene_related_init(self):
-        SIZE_TEXT_BIG = 48
-        SIZE_TEXT_MEDIUM = 24
-        SIZE_TEXT_TINY = 14
+        SIZE_TEXT_BIG = 53
+        SIZE_TEXT_MEDIUM = 29
+        SIZE_TEXT_TINY = 19
         TITLE_COORDS = (CST.SCREEN_WIDTH // 2, CST.SCREEN_HEIGHT * 0.2)
         SUBTITLE_COORDS = (CST.SCREEN_WIDTH // 2, CST.SCREEN_HEIGHT * 0.2 + 48)
         BOTTOM_TEXT_COORDS_LEFT = (0, CST.SCREEN_HEIGHT - SIZE_TEXT_MEDIUM)

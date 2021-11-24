@@ -26,8 +26,8 @@ class InfinityLevel(Scn.Scene):
         self.ui_lifebar = plr.Lifebar(self.player)
         self.asteroid_field = ast.AsteroidField(self.num_asteroids, self.player)
         self.powerup_field = pwr.PowerUpField(self.num_power_ups, self.player)
-        self.score_label = txt.StaticText(CST.get_text("LEVEL000") + ":", 14, (0,0), CST.TXT.LEFT)
-        self.navigator_text = txt.AnimatedTypedText("", 14, (30, 300), 20, autostart=False)
+        self.score_label = txt.StaticText(CST.get_text("LEVEL000") + ":", 19, (0,0), CST.TXT.LEFT)
+        self.navigator_text = txt.AnimatedTypedText("", 19, (30, 300), 20, autostart=False)
         self.movie_effect = mov.MovieEffect(80, 20)
 
         # Append order is draw order

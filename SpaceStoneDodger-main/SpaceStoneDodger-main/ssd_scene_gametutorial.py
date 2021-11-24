@@ -17,10 +17,10 @@ import ssd_scene_master_class as Scn
 
 class GameTutorial(Scn.Scene):
     def scene_related_init(self):
-        SIZE_TEXT_BIG = 48
-        SIZE_TEXT_MEDIUM = 24
-        SIZE_TEXT_SMALL = 18
-        SIZE_TEXT_TINY = 12
+        SIZE_TEXT_BIG = 53
+        SIZE_TEXT_MEDIUM = 29
+        SIZE_TEXT_SMALL = 23
+        SIZE_TEXT_TINY = 17
         FIRST_COL = 50
         SECOND_COL = 120
         FIRST_ROW = CST.SCREEN_HEIGHT // 4 * 1
