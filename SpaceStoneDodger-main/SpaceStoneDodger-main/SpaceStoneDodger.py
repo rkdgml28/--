@@ -8,6 +8,7 @@ import ssd_scene_gametutorial as SceneTutorial
 import ssd_scene_gamelevel as SceneLevel
 import ssd_scene_gamelosingscreen as SceneLose
 import ssd_scene_infinity_level as SceneInfinite
+import ssd_scene_gamerecord as SceneRecord
 
 
 
@@ -27,6 +28,7 @@ def main_game():
     game_level = SceneLevel.GameLevel(WIN)
     game_losing_screen = SceneLose.GameLosingScreen(WIN)
     game_infinite = SceneInfinite.InfinityLevel(WIN)
+    game_record = SceneRecord.GameRecord(WIN)
 
     scenelist = [
         game_menu,
@@ -34,6 +36,7 @@ def main_game():
         game_level,
         game_losing_screen,
         game_infinite,
+        game_record
     ]
 
     next_scene = CST.SCENES.GAME_MENU

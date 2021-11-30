@@ -41,7 +41,7 @@ def get_every_languages() -> list():
     langlist = []
     for langfile in filelist:
         fullpath = os.path.join(TRANSLATIONS_FOLDER, langfile)
-        with open(fullpath, "r") as myfile:
+        with open(fullpath, "r",encoding='UTF-8') as myfile:
             this_lang = json.load(myfile)
             # Every file NEEDS to have LANGUAGE key
             if this_lang.get("LANGUAGE", None):
@@ -116,6 +116,9 @@ KEYBINDINGS = {
     "L": (
         pygame.K_l,
     ),
+    "R":(
+        pygame.K_r,
+    )
 }
 
 
@@ -150,6 +153,7 @@ class SCENES:
     GAME_LEVEL = 2
     GAME_LOSING_SCREEN = 3
     GAME_Infinity = 4
+    GAME_Record = 5
 
 # Text alignment
 class TXT:

@@ -23,8 +23,9 @@ class GameMenu(Scn.Scene):
         TITLE_COORDS = (CST.SCREEN_WIDTH // 2, CST.SCREEN_HEIGHT * 0.2)
         SUBTITLE_COORDS = (CST.SCREEN_WIDTH // 2, CST.SCREEN_HEIGHT * 0.2 + 48)
         BOTTOM_TEXT_COORDS_LEFT = (0, CST.SCREEN_HEIGHT - SIZE_TEXT_MEDIUM)
-        BOTTOM_TEXT_COORDS_RIGHT = (CST.SCREEN_WIDTH, CST.SCREEN_HEIGHT - SIZE_TEXT_MEDIUM)
         BOTTOM_TEXT_COORDS_LEFT_UP = (0,CST.SCREEN_HEIGHT - 60)
+        BOTTOM_TEXT_COORDS_RIGHT = (CST.SCREEN_WIDTH, CST.SCREEN_HEIGHT - SIZE_TEXT_MEDIUM)
+        BOTTOM_TEXT_COORDS_RIGHT_UP = (CST.SCREEN_WIDTH, CST.SCREEN_HEIGHT - 60)
         BOTTOM_TEXT_COORDS_CENTER = (CST.SCREEN_WIDTH/2, CST.SCREEN_HEIGHT - SIZE_TEXT_BIG * 3)
 
         self.level_background = bg.Background()
@@ -36,6 +37,7 @@ class GameMenu(Scn.Scene):
         self.text_goto_tutorial = txt.StaticText("[T] " + CST.get_text("MENU003"), SIZE_TEXT_MEDIUM, BOTTOM_TEXT_COORDS_RIGHT, CST.TXT.RIGHT)
         self.text_goto_Infinite = txt.StaticText("[I] " + CST.get_text("MENU004"), SIZE_TEXT_MEDIUM, BOTTOM_TEXT_COORDS_LEFT_UP, CST.TXT.LEFT)
         self.text_Lang = txt.StaticText("[L] " + CST.get_text("MENU005"), SIZE_TEXT_MEDIUM, BOTTOM_TEXT_COORDS_CENTER,CST.TXT.CENTER )
+        self.text_goto_Record = txt.StaticText("[R] " + CST.get_text("MENU006"), SIZE_TEXT_MEDIUM, BOTTOM_TEXT_COORDS_RIGHT_UP, CST.TXT.RIGHT)
 
         # Append order is draw order
         self.updatelist.append(self.level_background)
@@ -46,6 +48,7 @@ class GameMenu(Scn.Scene):
         self.updatelist.append(self.text_goto_play)
         self.updatelist.append(self.text_goto_tutorial)
         self.updatelist.append(self.text_goto_Infinite)
+        self.updatelist.append(self.text_goto_Record)
         self.updatelist.append(self.text_Lang)
 
 
@@ -60,6 +63,8 @@ class GameMenu(Scn.Scene):
             self.quit_loop(CST.SCENES.GAME_TUTORIAL)
         if CST.pressed("I", key_list):
             self.quit_loop(CST.SCENES.GAME_Infinity)
+        if CST.pressed("R", key_list):
+            self.quit_loop(CST.SCENES.GAME_Record)    
         if CST.pressed("L", key_list):
             #현재 언어가 영어라면
             if(CST.TextDB.current_text_db == CST.get_every_languages()[LANG_ENG]):
