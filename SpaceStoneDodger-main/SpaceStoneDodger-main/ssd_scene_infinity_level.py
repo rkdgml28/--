@@ -1,5 +1,3 @@
-# 무한모드 코드 (미완성)
-# 44번째랑 63번째 부터 반복시킬려고하는데 시간은 초기화 되는데 타임라인대로 실행이안됨.
 import pygame
 import ssd_constants as CST
 import ssd_player as plr
@@ -49,7 +47,7 @@ class InfinityLevel(Scn.Scene):
             11: self.tml_playing_phase_3_3,
             15: self.tml_calm_before_the_swarm_3,
             20: self.tml_swarm_3,
-            24: self.tml_swarm_passed_3
+            24: self.tml_swarm_passed_3,
         }
 
         self.set_timer_step(1) # Setting the internal timer
@@ -63,6 +61,16 @@ class InfinityLevel(Scn.Scene):
         #반복시킴
         if self.timer_seconds_passed > 25 :
             print(self.timer_seconds_passed)
+            self.timeline = { #타임라인 재생성
+            1: self.tml_begin,
+            2: self.tml_playing_phase_start,
+            6: self.tml_playing_phase_3_1,
+            8: self.tml_playing_phase_3_2,
+            11: self.tml_playing_phase_3_3,
+            15: self.tml_calm_before_the_swarm_3,
+            20: self.tml_swarm_3,
+            24: self.tml_swarm_passed_3,
+            }
             self.timer_seconds_passed = 4
 
     def event_checking(self, this_event: pygame.event) -> None:
@@ -101,6 +109,7 @@ class InfinityLevel(Scn.Scene):
         if time_now == next_event_in_line:
             self.timeline[time_now]()
             self.timeline.pop(time_now)
+
 
     def tml_begin(self) -> None:
         """ Beginning of the game """

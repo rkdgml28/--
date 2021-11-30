@@ -31,6 +31,7 @@ class GameLevel(Scn.Scene):
         self.score_label = txt.StaticText(CST.get_text("LEVEL000") + ":", 19, (0,0), CST.TXT.LEFT)
         self.navigator_text = txt.AnimatedTypedText("", 19, (30, 300), 20, autostart=False)
         self.movie_effect = mov.MovieEffect(80, 20)
+        self.skip_lable = txt.StaticText(CST.get_text("SKIP"),20, (10,450), CST.TXT.LEFT)
 
         # Append order is draw order
         self.updatelist.append(self.level_background)
@@ -42,6 +43,7 @@ class GameLevel(Scn.Scene):
         self.updatelist.append(self.score_label)
         self.updatelist.append(self.navigator_text)
         self.updatelist.append(self.movie_effect)
+        self.updatelist.append(self.skip_lable)
 
         self.timeline = { # Keys are seconds of play, values are methods
             1: self.tml_begin,
@@ -161,6 +163,7 @@ class GameLevel(Scn.Scene):
     def tml_playing_phase_start(self) -> None:
         self.movie_effect.start_animation()
         self.navigator_text.hide()
+        self.updatelist.remove(self.skip_lable)
         self.player.user_controlled()
 
     def tml_playing_phase_1_1(self) -> None:
