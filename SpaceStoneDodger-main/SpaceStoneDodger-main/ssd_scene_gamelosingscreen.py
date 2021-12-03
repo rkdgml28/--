@@ -43,7 +43,8 @@ class GameLosingScreen(Scn.Scene):
         if CST.pressed("I", key_list):
             self.quit_loop(CST.SCENES.GAME_Infinity)
 
-
+    def scene_num(self) -> int:
+        return CST.SCENES.GAME_LOSING_SCREEN 
 
 
 

@@ -4,6 +4,7 @@
 
 
 import pygame
+from pygame.constants import KEYUP
 import ssd_constants as CST
 import ssd_player as plr
 import ssd_asteroid as ast
@@ -51,11 +52,10 @@ class GameMenu(Scn.Scene):
         self.updatelist.append(self.text_goto_Record)
         self.updatelist.append(self.text_Lang)
 
+    def scene_num(self) -> int:
+        return CST.SCENES.GAME_MENU  
 
     def keys_to_check(self, key_list: list):
-        LANG_ENG = 0
-        LANG_KOR = 1
-        
         self.player.handle_movement(key_list)
         if CST.pressed("P", key_list):
             self.quit_loop(CST.SCENES.GAME_LEVEL)
@@ -64,20 +64,24 @@ class GameMenu(Scn.Scene):
         if CST.pressed("I", key_list):
             self.quit_loop(CST.SCENES.GAME_Infinity)
         if CST.pressed("R", key_list):
-            self.quit_loop(CST.SCENES.GAME_Record)    
-        if CST.pressed("L", key_list):
-            #현재 언어가 영어라면
-            if(CST.TextDB.current_text_db == CST.get_every_languages()[LANG_ENG]):
-                #영어->한국어
-                CST.set_text_db(CST.get_every_languages()[LANG_KOR])
-            else:
-                #한국어->영어
-                CST.set_text_db(CST.get_every_languages()[LANG_ENG])
-            
-            WIN = pygame.display.set_mode((CST.SCREEN_WIDTH, CST.SCREEN_HEIGHT))
-            pygame.display.set_caption("Space Stone Dodger!")    
-            self.__init__(WIN)         
+            self.quit_loop(CST.SCENES.GAME_Record)   
 
+    def change_lang(self):
+        #textDB 언어 변경
+        LANG_ENG = 0
+        LANG_KOR = 1
+        if(CST.TextDB.current_text_db == CST.get_every_languages()[LANG_ENG]):
+            #영어->한국어
+            CST.set_text_db(CST.get_every_languages()[LANG_KOR])
+        else:
+            #한국어->영어
+            CST.set_text_db(CST.get_every_languages()[LANG_ENG])  
+                  
+        self.updatelist.clear() #scene.updatelist 초기화
+        self.scene_related_init() #언어 변경을 위한 scene_related_init()
+                
+                    
+        
 
 
 

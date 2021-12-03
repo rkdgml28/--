@@ -165,6 +165,8 @@ class InfinityLevel(Scn.Scene):
         """ End of scene, onward to credits! """
         self.quit_loop(CST.SCENES.GAME_MENU)
 
+    def scene_num(self) -> int:
+        return CST.SCENES.GAME_Infinity
 
 
 

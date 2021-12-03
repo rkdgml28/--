@@ -64,13 +64,16 @@ class Scene:
         self.looping_active = True
 
 
+    def scene_num(self) -> int:
+        #화면 번호를 반환하는 함수
+        pass  
+
     def run(self) -> int:
         """ Main loop method """
         time = t.time()
         unprocessed = 0
         FRAME_CAP = 1.0 / CST.FPS # How many millisecons needs to pass each frame
         game_timer = 0
-
         self.updatelist.clear() #scene.updatelist 초기화
         self.scene_related_init() #언어 변경을 위한 scene_related_init()
         
@@ -84,10 +87,15 @@ class Scene:
 
             for event in pygame.event.get():
                 self.event_checking(event)
+                #언어 변경 이벤트 처리
+                if event.type == pygame.KEYUP:
+                    if event.key == pygame.K_l:
+                        if (self.scene_num() == CST.SCENES.GAME_MENU):
+                            self.change_lang()
+
                     
             # Key state capturing
             keys_pressed = pygame.key.get_pressed() # Gets the bool state of all keyboard buttons
-
             # Frame stabilyzer
             while unprocessed >= FRAME_CAP:
                 unprocessed -= FRAME_CAP
@@ -96,7 +104,6 @@ class Scene:
             # What happens each frame
             if can_render:
                 game_timer += 1
-
                 # Key press checking
                 self.keys_to_check(keys_pressed)
 

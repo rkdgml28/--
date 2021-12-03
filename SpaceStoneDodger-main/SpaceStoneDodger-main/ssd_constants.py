@@ -113,9 +113,6 @@ KEYBINDINGS = {
     "I": (
         pygame.K_i,
     ),
-    "L": (
-        pygame.K_l,
-    ),
     "R":(
         pygame.K_r,
     )
