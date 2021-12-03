@@ -4,7 +4,6 @@
 
 
 import pygame
-from pygame.constants import KEYUP
 import ssd_constants as CST
 import ssd_player as plr
 import ssd_asteroid as ast
@@ -76,7 +75,7 @@ class GameMenu(Scn.Scene):
         else:
             #한국어->영어
             CST.set_text_db(CST.get_every_languages()[LANG_ENG])  
-                  
+
         self.updatelist.clear() #scene.updatelist 초기화
         self.scene_related_init() #언어 변경을 위한 scene_related_init()
                 
