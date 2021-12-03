@@ -30,5 +30,6 @@
 "LOSE001": "Sadly, stones Won",
 "LOSE002": "back to Menu",
 "LOSE003": "Play again",
-"LOSE004": "Play Infinite Mode again"
+"LOSE004": "Play Infinite Mode",
+"SKIP": "press [Z] to skip intro"
 }

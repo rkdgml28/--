@@ -71,7 +71,9 @@ class Scene:
         FRAME_CAP = 1.0 / CST.FPS # How many millisecons needs to pass each frame
         game_timer = 0
 
-        self.__init__(self.GAME_WINDOW) # 언어 변경을 위한 초기화 추가
+        self.updatelist.clear() #scene.updatelist 초기화
+        self.scene_related_init() #언어 변경을 위한 scene_related_init()
+        
         # Main game loop
         while self.looping_active:
             can_render = False
